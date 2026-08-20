@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nossas Ações | Grupo Educação e Povos Originários</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --verde-escuro: #1a3c34;
+      --verde: #2d6a4f;
+      --verde-claro: #40916c;
+      --terra: #bc6c25;
+      --ocre: #dda15e;
+      --creme: #fefae0;
+      --branco: #ffffff;
+      --cinza: #4a4a4a;
+      --sombra: 0 10px 30px rgba(0,0,0,0.08);
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Inter', sans-serif; background: var(--creme); color: var(--cinza); line-height: 1.6; }
+    header { background: linear-gradient(135deg, var(--verde-escuro), var(--verde)); color: white; padding: 1.2rem 2rem; position: sticky; top: 0; z-index: 100; box-shadow: 0 4px 20px rgba(0,0,0,0.15); }
+    .nav-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+    .logo { font-family: 'Playfair Display', serif; font-size: 1.45rem; font-weight: 700; display: flex; align-items: center; gap: 0.6rem; }
+    .logo a { color: white; text-decoration: none; display: flex; align-items: center; gap: 0.6rem; }
+    nav ul { display: flex; list-style: none; gap: 1.8rem; }
+    nav a { color: white; text-decoration: none; font-weight: 500; font-size: 0.95rem; transition: opacity 0.3s; }
+    nav a:hover, nav a.active { opacity: 0.85; border-bottom: 2px solid var(--ocre); padding-bottom: 2px; }
+    .menu-toggle { display: none; background: none; border: none; color: white; font-size: 1.8rem; cursor: pointer; }
+    .page-hero { background: linear-gradient(135deg, var(--verde-escuro), var(--verde)); color: white; padding: 5rem 2rem 4rem; text-align: center; }
+    .page-hero h1 { font-family: 'Playfair Display', serif; font-size: 2.8rem; margin-bottom: 1rem; }
+    .page-hero p { font-size: 1.2rem; opacity: 0.95; max-width: 700px; margin: 0 auto; }
+    section { padding: 4.5rem 2rem; }
+    .container { max-width: 1100px; margin: 0 auto; }
+    .section-title { font-family: 'Playfair Display', serif; font-size: 2.2rem; color: var(--verde-escuro); margin-bottom: 1rem; text-align: center; }
+    .section-subtitle { text-align: center; max-width: 680px; margin: 0 auto 3rem; color: #666; }
+    .acoes-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; }
+    .acao { background: white; border-radius: 16px; padding: 2rem; box-shadow: var(--sombra); border-left: 5px solid var(--verde); transition: transform 0.3s; }
+    .acao:hover { transform: translateY(-5px); }
+    .acao .numero { font-size: 2rem; font-weight: 700; color: var(--ocre); margin-bottom: 0.5rem; }
+    .acao h3 { color: var(--verde-escuro); margin-bottom: 0.7rem; font-size: 1.25rem; }
+    .acao p { font-size: 0.98rem; }
+    .btn { display: inline-block; background: var(--ocre); color: var(--verde-escuro); padding: 0.9rem 2rem; border-radius: 50px; text-decoration: none; font-weight: 600; transition: all 0.3s; margin-top: 1rem; }
+    .btn:hover { background: var(--terra); color: white; }
+    footer { background: #0f2a24; color: rgba(255,255,255,0.8); padding: 3.5rem 2rem 1.5rem; text-align: center; }
+    .footer-content { max-width: 900px; margin: 0 auto 2rem; }
+    .footer-links { display: flex; justify-content: center; gap: 2rem; margin: 1.5rem 0; flex-wrap: wrap; }
+    .footer-links a { color: rgba(255,255,255,0.8); text-decoration: none; }
+    .footer-links a:hover { color: var(--ocre); }
+    .copyright { font-size: 0.9rem; opacity: 0.7; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 1.5rem; }
+    @media (max-width: 768px) {
+      .menu-toggle { display: block; }
+      nav ul { display: none; position: absolute; top: 70px; left: 0; right: 0; background: var(--verde-escuro); flex-direction: column; padding: 1.5rem; gap: 1.2rem; text-align: center; }
+      nav ul.active { display: flex; }
+      .page-hero h1 { font-size: 2.1rem; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="nav-container">
+      <div class="logo">
+        <a href="index.html"><span>🌿</span> Educação & Povos Originários</a>
+      </div>
+      <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+      <nav>
+        <ul id="menu">
+          <li><a href="index.html">Início</a></li>
+          <li><a href="sobre.html">Sobre</a></li>
+          <li><a href="acoes.html" class="active">Ações</a></li>
+          <li><a href="projetos.html">Projetos</a></li>
+          <li><a href="equipe.html">Equipe</a></li>
+          <li><a href="contato.html">Contato</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="page-hero">
+    <h1>Nossas Ações</h1>
+    <p>Atividades concretas que realizamos em parceria com comunidades, escolas e organizações indígenas em todo o Brasil.</p>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="acoes-grid">
+        <div class="acao">
+          <div class="numero">01</div>
+          <h3>Formação de Professores Indígenas</h3>
+          <p>Realizamos cursos de formação continuada para professores indígenas e não indígenas que atuam em escolas de educação diferenciada. Abordamos metodologias interculturais, produção de material didático e gestão escolar participativa.</p>
+        </div>
+        <div class="acao">
+          <div class="numero">02</div>
+          <h3>Produção de Materiais Didáticos</h3>
+          <p>Construímos, em parceria com as comunidades, livros, cartilhas e recursos digitais em línguas indígenas e em português, com conteúdos que valorizam a história, a cosmologia e os saberes tradicionais de cada povo.</p>
+        </div>
+        <div class="acao">
+          <div class="numero">03</div>
+          <h3>Revitalização de Línguas Originárias</h3>
+          <p>Apoiamos projetos de documentação, ensino e revitalização de línguas indígenas ameaçadas. Trabalhamos com falantes idosos, jovens e escolas para fortalecer o uso cotidiano da língua.</p>
+        </div>
+        <div class="acao">
+          <div class="numero">04</div>
+          <h3>Acompanhamento de Estudantes</h3>
+          <p>Oferecemos apoio pedagógico, psicológico e de permanência para estudantes indígenas no ensino médio e superior, incluindo orientação acadêmica e articulação de bolsas e auxílios.</p>
+        </div>
+        <div class="acao">
+          <div class="numero">05</div>
+          <h3>Articulação Política e Advocacy</h3>
+          <p>Participamos de fóruns, conselhos e espaços de incidência política para defender a implementação efetiva da educação escolar indígena e o cumprimento da legislação vigente.</p>
+        </div>
+        <div class="acao">
+          <div class="numero">06</div>
+          <h3>Educação e Gestão Territorial</h3>
+          <p>Desenvolvemos projetos que integram a educação escolar com o conhecimento tradicional sobre o território, a floresta e a sustentabilidade, fortalecendo o vínculo entre escola e comunidade.</p>
+        </div>
+      </div>
+
+      <div style="text-align:center;margin-top:3.5rem;">
+        <a href="contato.html" class="btn">Quero participar ou apoiar</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-content">
+      <div class="logo" style="justify-content:center;color:white;margin-bottom:1rem;">
+        <span>🌿</span> Grupo Educação e Povos Originários
+      </div>
+      <p>Educação intercultural • Protagonismo indígena • Direitos humanos</p>
+      <div class="footer-links">
+        <a href="index.html">Início</a>
+        <a href="sobre.html">Sobre</a>
+        <a href="acoes.html">Ações</a>
+        <a href="projetos.html">Projetos</a>
+        <a href="equipe.html">Equipe</a>
+        <a href="contato.html">Contato</a>
+      </div>
+    </div>
+    <div class="copyright">© 2026 Grupo Educação e Povos Originários — Protótipo</div>
+  </footer>
+
+  <script>
+    function toggleMenu() { document.getElementById('menu').classList.toggle('active'); }
+    document.querySelectorAll('#menu a').forEach(link => {
+      link.addEventListener('click', () => document.getElementById('menu').classList.remove('active'));
+    });
+  </script>
+</body>
+</html>
