@@ -1,0 +1,881 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grupo Educação e Povos Originários</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --verde-escuro: #1a3c34;
+      --verde: #2d6a4f;
+      --verde-claro: #40916c;
+      --terra: #bc6c25;
+      --ocre: #dda15e;
+      --creme: #fefae0;
+      --branco: #ffffff;
+      --cinza: #4a4a4a;
+      --sombra: 0 10px 30px rgba(0,0,0,0.08);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--creme);
+      color: var(--cinza);
+      line-height: 1.6;
+    }
+
+    /* Header */
+    header {
+      background: linear-gradient(135deg, var(--verde-escuro), var(--verde));
+      color: white;
+      padding: 1.2rem 2rem;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+    }
+
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.45rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 1.8rem;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.95rem;
+      transition: opacity 0.3s;
+    }
+
+    nav a:hover { opacity: 0.8; }
+
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      color: white;
+      font-size: 1.8rem;
+      cursor: pointer;
+    }
+
+    /* Hero */
+    .hero {
+      background: linear-gradient(rgba(26, 60, 52, 0.75), rgba(45, 106, 79, 0.8)),
+                  url('https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?w=1600&q=80') center/cover no-repeat;
+      color: white;
+      padding: 8rem 2rem 6rem;
+      text-align: center;
+    }
+
+    .hero-content { max-width: 820px; margin: 0 auto; }
+
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 3.1rem;
+      margin-bottom: 1.2rem;
+      line-height: 1.2;
+    }
+
+    .hero p {
+      font-size: 1.25rem;
+      margin-bottom: 2.5rem;
+      opacity: 0.95;
+    }
+
+    .btn {
+      display: inline-block;
+      background: var(--ocre);
+      color: var(--verde-escuro);
+      padding: 0.9rem 2rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s;
+      border: none;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+
+    .btn:hover {
+      background: var(--terra);
+      color: white;
+      transform: translateY(-2px);
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 2px solid white;
+      color: white;
+      margin-left: 1rem;
+    }
+
+    .btn-outline:hover {
+      background: white;
+      color: var(--verde-escuro);
+    }
+
+    .btn-small {
+      padding: 0.55rem 1.3rem;
+      font-size: 0.9rem;
+      margin-top: 1rem;
+    }
+
+    /* Sections */
+    section { padding: 5rem 2rem; }
+    .container { max-width: 1100px; margin: 0 auto; }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.4rem;
+      color: var(--verde-escuro);
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+
+    .section-subtitle {
+      text-align: center;
+      max-width: 680px;
+      margin: 0 auto 3.5rem;
+      color: #666;
+    }
+
+    /* Sobre */
+    .sobre-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .sobre-text h3 {
+      color: var(--verde);
+      margin-bottom: 0.8rem;
+      font-size: 1.35rem;
+    }
+
+    .sobre-text p { margin-bottom: 1.1rem; }
+
+    .sobre-image {
+      border-radius: 20px;
+      overflow: hidden;
+      height: 420px;
+      box-shadow: var(--sombra);
+    }
+
+    .sobre-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* Valores */
+    .valores { background: white; }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.8rem;
+    }
+
+    .card {
+      background: var(--creme);
+      padding: 2rem;
+      border-radius: 16px;
+      box-shadow: var(--sombra);
+      transition: transform 0.3s;
+      border-top: 4px solid var(--verde);
+    }
+
+    .card:hover { transform: translateY(-8px); }
+    .card-icon { font-size: 2.4rem; margin-bottom: 0.9rem; }
+    .card h3 { color: var(--verde-escuro); margin-bottom: 0.7rem; font-size: 1.2rem; }
+
+    /* Ações */
+    .acoes-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2rem;
+    }
+
+    .acao {
+      background: white;
+      border-radius: 16px;
+      padding: 2rem;
+      box-shadow: var(--sombra);
+      border-left: 5px solid var(--verde);
+      transition: transform 0.3s;
+    }
+
+    .acao:hover { transform: translateY(-5px); }
+    .acao h3 { color: var(--verde-escuro); margin-bottom: 0.7rem; font-size: 1.25rem; }
+    .acao p { font-size: 0.98rem; }
+
+    /* Projetos */
+    .projetos-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2rem;
+    }
+
+    .projeto {
+      background: white;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: var(--sombra);
+      transition: transform 0.3s;
+    }
+
+    .projeto:hover { transform: translateY(-6px); }
+
+    .projeto-img { height: 200px; overflow: hidden; }
+    .projeto-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s;
+    }
+    .projeto:hover .projeto-img img { transform: scale(1.08); }
+
+    .projeto-content { padding: 1.8rem; }
+    .projeto h3 { color: var(--verde-escuro); margin-bottom: 0.6rem; }
+
+    .tag {
+      display: inline-block;
+      background: var(--ocre);
+      color: var(--verde-escuro);
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 0.25rem 0.7rem;
+      border-radius: 20px;
+      margin-bottom: 0.8rem;
+    }
+
+    /* Impacto */
+    .impacto {
+      background: linear-gradient(135deg, var(--verde-escuro), var(--verde));
+      color: white;
+    }
+
+    .impacto .section-title { color: white; }
+    .impacto .section-subtitle { color: rgba(255,255,255,0.85); }
+
+    .numeros {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 2rem;
+      text-align: center;
+    }
+
+    .numero h3 {
+      font-size: 2.8rem;
+      font-weight: 700;
+      color: var(--ocre);
+      margin-bottom: 0.4rem;
+    }
+
+    .numero p { font-size: 1.05rem; opacity: 0.9; }
+
+    /* Depoimentos */
+    .depoimentos-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .depoimento {
+      background: white;
+      padding: 2rem;
+      border-radius: 16px;
+      box-shadow: var(--sombra);
+      position: relative;
+    }
+
+    .depoimento::before {
+      content: """;
+      font-size: 4rem;
+      color: var(--ocre);
+      position: absolute;
+      top: 10px;
+      left: 20px;
+      opacity: 0.4;
+      font-family: Georgia, serif;
+    }
+
+    .depoimento p {
+      margin-top: 1.5rem;
+      font-style: italic;
+      margin-bottom: 1.5rem;
+    }
+
+    .autor {
+      font-weight: 600;
+      color: var(--verde-escuro);
+    }
+
+    .autor span {
+      display: block;
+      font-weight: 400;
+      font-size: 0.9rem;
+      color: #777;
+    }
+
+    /* Contato */
+    .contato {
+      background: linear-gradient(135deg, var(--verde-escuro), var(--verde));
+      color: white;
+    }
+
+    .contato .section-title { color: white; }
+    .contato .section-subtitle { color: rgba(255,255,255,0.85); }
+
+    .form-container {
+      max-width: 600px;
+      margin: 0 auto;
+      background: white;
+      padding: 2.5rem;
+      border-radius: 20px;
+      box-shadow: var(--sombra);
+    }
+
+    .form-group { margin-bottom: 1.4rem; }
+
+    label {
+      display: block;
+      margin-bottom: 0.4rem;
+      color: var(--verde-escuro);
+      font-weight: 500;
+      font-size: 0.95rem;
+    }
+
+    input, textarea, select {
+      width: 100%;
+      padding: 0.85rem 1rem;
+      border: 2px solid #e0e0e0;
+      border-radius: 10px;
+      font-family: inherit;
+      font-size: 1rem;
+      transition: border 0.3s;
+    }
+
+    input:focus, textarea:focus, select:focus {
+      outline: none;
+      border-color: var(--verde);
+    }
+
+    textarea { resize: vertical; min-height: 120px; }
+    .form-container .btn { width: 100%; margin-top: 0.5rem; }
+
+    /* Footer */
+    footer {
+      background: #0f2a24;
+      color: rgba(255,255,255,0.8);
+      padding: 3.5rem 2rem 1.5rem;
+      text-align: center;
+    }
+
+    .footer-content { max-width: 900px; margin: 0 auto 2rem; }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin: 1.5rem 0;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      color: rgba(255,255,255,0.8);
+      text-decoration: none;
+    }
+
+    .footer-links a:hover { color: var(--ocre); }
+
+    .copyright {
+      font-size: 0.9rem;
+      opacity: 0.7;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding-top: 1.5rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .menu-toggle { display: block; }
+
+      nav ul {
+        display: none;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        right: 0;
+        background: var(--verde-escuro);
+        flex-direction: column;
+        padding: 1.5rem;
+        gap: 1.2rem;
+        text-align: center;
+      }
+
+      nav ul.active { display: flex; }
+
+      .hero h1 { font-size: 2.2rem; }
+      .hero p { font-size: 1.1rem; }
+
+      .btn-outline {
+        margin-left: 0;
+        margin-top: 1rem;
+        display: block;
+      }
+
+      .sobre-grid {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+      }
+
+      .sobre-image { height: 300px; }
+      .section-title { font-size: 2rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="nav-container">
+      <div class="logo">
+        <span>🌿</span>
+        Educação & Povos Originários
+      </div>
+      <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+      <nav>
+        <ul id="menu">
+          <li><a href="#sobre">Sobre</a></li>
+          <li><a href="#valores">Valores</a></li>
+          <li><a href="#acoes">Ações</a></li>
+          <li><a href="#projetos">Projetos</a></li>
+          <li><a href="#impacto">Impacto</a></li>
+          <li><a href="#contato">Contato</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Educação que honra a ancestralidade</h1>
+      <p>
+        Fortalecendo o direito à educação dos povos originários com respeito, 
+        protagonismo e valorização dos saberes tradicionais.
+      </p>
+      <a href="#acoes" class="btn">Conheça nossas ações</a>
+      <a href="#contato" class="btn btn-outline">Fale conosco</a>
+    </div>
+  </section>
+
+  <!-- Sobre -->
+  <section id="sobre">
+    <div class="container">
+      <h2 class="section-title">Quem somos</h2>
+      <p class="section-subtitle">
+        Um coletivo multidisciplinar dedicado à promoção de políticas e práticas 
+        educativas que respeitem a diversidade cultural e territorial dos povos indígenas.
+      </p>
+
+      <div class="sobre-grid">
+        <div class="sobre-text">
+          <h3>Nossa missão</h3>
+          <p>
+            Atuar junto às comunidades indígenas, escolas e órgãos públicos para 
+            garantir uma educação intercultural, bilíngue e de qualidade, 
+            que valorize os conhecimentos tradicionais e fortaleça a identidade dos povos originários.
+          </p>
+          <p>
+            Trabalhamos com escuta permanente, construção coletiva e respeito à 
+            autodeterminação das comunidades.
+          </p>
+
+          <h3 style="margin-top: 1.8rem;">Nossa visão</h3>
+          <p>
+            Um Brasil onde todas as crianças e jovens indígenas tenham acesso a 
+            uma educação que dialogue com sua cultura, território e cosmovisão.
+          </p>
+
+          <h3 style="margin-top: 1.8rem;">Como atuamos</h3>
+          <p>
+            Desenvolvemos projetos de formação de professores, produção de materiais 
+            didáticos culturalmente referenciados, revitalização de línguas, 
+            apoio à permanência de estudantes no ensino superior e articulação 
+            política em defesa dos direitos educacionais indígenas.
+          </p>
+        </div>
+        <div class="sobre-image">
+          <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80" 
+               alt="Paisagem natural representando o território dos povos originários">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Valores -->
+  <section class="valores" id="valores">
+    <div class="container">
+      <h2 class="section-title">Nossos valores</h2>
+      <p class="section-subtitle">
+        Princípios que orientam todas as nossas ações e parcerias.
+      </p>
+
+      <div class="cards">
+        <div class="card">
+          <div class="card-icon">🤝</div>
+          <h3>Protagonismo Indígena</h3>
+          <p>
+            As comunidades são as protagonistas. Atuamos em escuta permanente 
+            e com respeito à autodeterminação dos povos.
+          </p>
+        </div>
+        <div class="card">
+          <div class="card-icon">🌍</div>
+          <h3>Interculturalidade</h3>
+          <p>
+            Valorizamos o diálogo entre saberes tradicionais e conhecimentos 
+            científicos, sem hierarquias.
+          </p>
+        </div>
+        <div class="card">
+          <div class="card-icon">📜</div>
+          <h3>Direitos Humanos</h3>
+          <p>
+            Defendemos o direito à educação diferenciada previsto na Constituição 
+            e na legislação internacional.
+          </p>
+        </div>
+        <div class="card">
+          <div class="card-icon">🌱</div>
+          <h3>Sustentabilidade</h3>
+          <p>
+            A educação deve estar conectada ao território, à natureza e 
+            à continuidade da vida das futuras gerações.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AÇÕES (nova seção detalhada) -->
+  <section id="acoes">
+    <div class="container">
+      <h2 class="section-title">Nossas Ações</h2>
+      <p class="section-subtitle">
+        Atividades concretas que realizamos em parceria com comunidades, 
+        escolas e organizações indígenas em todo o Brasil.
+      </p>
+
+      <div class="acoes-grid">
+        <div class="acao">
+          <h3>1. Formação de Professores Indígenas</h3>
+          <p>
+            Realizamos cursos de formação continuada para professores indígenas 
+            e não indígenas que atuam em escolas de educação diferenciada. 
+            Abordamos metodologias interculturais, produção de material didático 
+            e gestão escolar participativa.
+          </p>
+        </div>
+
+        <div class="acao">
+          <h3>2. Produção de Materiais Didáticos</h3>
+          <p>
+            Construímos, em parceria com as comunidades, livros, cartilhas e 
+            recursos digitais em línguas indígenas e em português, com conteúdos 
+            que valorizam a história, a cosmologia e os saberes tradicionais 
+            de cada povo.
+          </p>
+        </div>
+
+        <div class="acao">
+          <h3>3. Revitalização de Línguas Originárias</h3>
+          <p>
+            Apoiamos projetos de documentação, ensino e revitalização de línguas 
+            indígenas ameaçadas. Trabalhamos com falantes idosos, jovens e 
+            escolas para fortalecer o uso cotidiano da língua.
+          </p>
+        </div>
+
+        <div class="acao">
+          <h3>4. Acompanhamento de Estudantes</h3>
+          <p>
+            Oferecemos apoio pedagógico, psicológico e de permanência para 
+            estudantes indígenas no ensino médio e superior, incluindo 
+            orientação acadêmica e articulação de bolsas e auxílios.
+          </p>
+        </div>
+
+        <div class="acao">
+          <h3>5. Articulação Política e Advocacy</h3>
+          <p>
+            Participamos de fóruns, conselhos e espaços de incidência política 
+            para defender a implementação efetiva da educação escolar indígena 
+            e o cumprimento da legislação vigente.
+          </p>
+        </div>
+
+        <div class="acao">
+          <h3>6. Educação e Gestão Territorial</h3>
+          <p>
+            Desenvolvemos projetos que integram a educação escolar com o 
+            conhecimento tradicional sobre o território, a floresta e a 
+            sustentabilidade, fortalecendo o vínculo entre escola e comunidade.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projetos -->
+  <section id="projetos" style="background: white;">
+    <div class="container">
+      <h2 class="section-title">Projetos em andamento</h2>
+      <p class="section-subtitle">
+        Iniciativas estruturantes desenvolvidas em parceria com comunidades 
+        e organizações indígenas.
+      </p>
+
+      <div class="projetos-grid">
+        <div class="projeto">
+          <div class="projeto-img">
+            <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=600&q=80" 
+                 alt="Crianças aprendendo ao ar livre">
+          </div>
+          <div class="projeto-content">
+            <span class="tag">Educação Básica</span>
+            <h3>Escolas Vivas</h3>
+            <p>
+              Formação de professores indígenas e construção de materiais didáticos 
+              bilíngues e culturalmente referenciados em escolas de educação diferenciada.
+            </p>
+            <a href="#contato" class="btn btn-small">Saiba mais</a>
+          </div>
+        </div>
+
+        <div class="projeto">
+          <div class="projeto-img">
+            <img src="https://images.unsplash.com/photo-1456513080800-7d93dbe3c6d6?w=600&q=80" 
+                 alt="Livros e conhecimento tradicional">
+          </div>
+          <div class="projeto-content">
+            <span class="tag">Línguas Indígenas</span>
+            <h3>Revitalização Linguística</h3>
+            <p>
+              Apoio a projetos de documentação, ensino e revitalização de línguas 
+              originárias em risco de desaparecimento, com foco em crianças e jovens.
+            </p>
+            <a href="#contato" class="btn btn-small">Saiba mais</a>
+          </div>
+        </div>
+
+        <div class="projeto">
+          <div class="projeto-img">
+            <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=600&q=80" 
+                 alt="Jovens estudantes">
+          </div>
+          <div class="projeto-content">
+            <span class="tag">Ensino Superior</span>
+            <h3>Acesso e Permanência</h3>
+            <p>
+              Acompanhamento de estudantes indígenas no ensino superior e 
+              articulação de políticas de permanência, cotas e auxílios estudantis.
+            </p>
+            <a href="#contato" class="btn btn-small">Saiba mais</a>
+          </div>
+        </div>
+
+        <div class="projeto">
+          <div class="projeto-img">
+            <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=600&q=80" 
+                 alt="Floresta e território indígena">
+          </div>
+          <div class="projeto-content">
+            <span class="tag">Território</span>
+            <h3>Educação e Terra</h3>
+            <p>
+              Projetos que integram educação escolar e gestão territorial, 
+              valorizando o conhecimento tradicional sobre a floresta e a terra.
+            </p>
+            <a href="#contato" class="btn btn-small">Saiba mais</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Impacto -->
+  <section class="impacto" id="impacto">
+    <div class="container">
+      <h2 class="section-title">Nosso impacto</h2>
+      <p class="section-subtitle">
+        Resultados alcançados nos últimos anos por meio das nossas ações e parcerias.
+      </p>
+
+      <div class="numeros">
+        <div class="numero">
+          <h3>48</h3>
+          <p>Comunidades atendidas</p>
+        </div>
+        <div class="numero">
+          <h3>1.240</h3>
+          <p>Professores formados</p>
+        </div>
+        <div class="numero">
+          <h3>17</h3>
+          <p>Línguas apoiadas</p>
+        </div>
+        <div class="numero">
+          <h3>860</h3>
+          <p>Estudantes acompanhados</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Depoimentos -->
+  <section>
+    <div class="container">
+      <h2 class="section-title">Depoimentos</h2>
+      <p class="section-subtitle">
+        Vozes de quem vive e constrói a educação indígena conosco.
+      </p>
+
+      <div class="depoimentos-grid">
+        <div class="depoimento">
+          <p>
+            “A formação que recebemos mudou a forma como trabalhamos na escola. 
+            Hoje conseguimos valorizar muito mais a nossa língua e os saberes 
+            dos nossos anciãos.”
+          </p>
+          <div class="autor">
+            Maria Kopenawa
+            <span>Professora indígena – Roraima</span>
+          </div>
+        </div>
+
+        <div class="depoimento">
+          <p>
+            “O acompanhamento fez toda a diferença na minha permanência na universidade. 
+            Não me senti sozinha e consegui concluir a graduação.”
+          </p>
+          <div class="autor">
+            João Guarani
+            <span>Estudante de Pedagogia – São Paulo</span>
+          </div>
+        </div>
+
+        <div class="depoimento">
+          <p>
+            “Os materiais didáticos produzidos junto com a comunidade são um 
+            patrimônio. Nossas crianças finalmente se veem nos livros.”
+          </p>
+          <div class="autor">
+            Ana Potiguara
+            <span>Liderança comunitária – Paraíba</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contato -->
+  <section class="contato" id="contato">
+    <div class="container">
+      <h2 class="section-title">Fale conosco</h2>
+      <p class="section-subtitle">
+        Quer conhecer mais, propor uma parceria, apoiar nossas ações ou 
+        solicitar formação? Envie uma mensagem.
+      </p>
+
+      <div class="form-container">
+        <form onsubmit="event.preventDefault(); alert('Mensagem enviada com sucesso! (protótipo)');">
+          <div class="form-group">
+            <label for="nome">Nome completo</label>
+            <input type="text" id="nome" placeholder="Seu nome" required>
+          </div>
+          <div class="form-group">
+            <label for="email">E-mail</label>
+            <input type="email" id="email" placeholder="seu@email.com" required>
+          </div>
+          <div class="form-group">
+            <label for="assunto">Assunto</label>
+            <select id="assunto">
+              <option>Parceria institucional</option>
+              <option>Apoio a projetos</option>
+              <option>Solicitação de formação</option>
+              <option>Informações gerais</option>
+              <option>Voluntariado</option>
+              <option>Outro</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="mensagem">Mensagem</label>
+            <textarea id="mensagem" placeholder="Escreva sua mensagem..." required></textarea>
+          </div>
+          <button type="submit" class="btn">Enviar mensagem</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <div class="logo" style="justify-content: center; color: white; margin-bottom: 1rem;">
+        <span>🌿</span> Grupo Educação e Povos Originários
+      </div>
+      <p>Educação intercultural • Protagonismo indígena • Direitos humanos</p>
+      <div class="footer-links">
+        <a href="#sobre">Sobre</a>
+        <a href="#valores">Valores</a>
+        <a href="#acoes">Ações</a>
+        <a href="#projetos">Projetos</a>
+        <a href="#impacto">Impacto</a>
+        <a href="#contato">Contato</a>
+      </div>
+    </div>
+    <div class="copyright">
+      © 2026 Grupo Educação e Povos Originários — Protótipo desenvolvido para fins de apresentação
+    </div>
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      document.getElementById('menu').classList.toggle('active');
+    }
+
+    document.querySelectorAll('#menu a').forEach(link => {
+      link.addEventListener('click', () => {
+        document.getElementById('menu').classList.remove('active');
+      });
+    });
+  </script>
+</body>
+</html>
